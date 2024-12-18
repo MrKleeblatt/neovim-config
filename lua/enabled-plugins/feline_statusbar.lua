@@ -1,0 +1,1 @@
+../available-plugins/feline_statusbar.lua

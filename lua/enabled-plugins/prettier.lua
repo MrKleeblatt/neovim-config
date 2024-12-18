@@ -1,0 +1,1 @@
+../available-plugins/prettier.lua

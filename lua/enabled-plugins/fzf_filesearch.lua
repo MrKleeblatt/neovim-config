@@ -1,0 +1,1 @@
+../available-plugins/fzf_filesearch.lua

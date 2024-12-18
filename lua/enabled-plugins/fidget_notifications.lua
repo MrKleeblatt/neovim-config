@@ -1,0 +1,1 @@
+../available-plugins/fidget_notifications.lua
