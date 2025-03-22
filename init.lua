@@ -1,4 +1,4 @@
-require('config.options')
-require('config.lazy')
-require('config.colorscheme')
-require('config.keymaps')
+require('mrkleeblatt.options')
+require('mrkleeblatt.lazy_loader')
+require('mrkleeblatt.colorscheme')
+require('mrkleeblatt.keymaps')

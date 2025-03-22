@@ -1,5 +1,0 @@
-return {
-	{
-		'freddiehaddad/feline.nvim',
-	}
-}
