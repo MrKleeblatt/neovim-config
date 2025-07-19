@@ -3,7 +3,6 @@ return {
 		"lewis6991/gitsigns.nvim",
 		event = "User IceLoad",
 		main = "gitsigns",
-		opts = {},
 		keys = {
 			{ "<leader>gn", "<Cmd>Gitsigns next_hunk<CR>",       desc = "next hunk",      silent = true },
 			{ "<leader>gp", "<Cmd>Gitsigns prev_hunk<CR>",       desc = "prev hunk",      silent = true },
@@ -15,5 +14,8 @@ return {
 			{ "<leader>gb", "<Cmd>Gitsigns blame<CR>",           desc = "git blame",      silent = true },
 			{ "<leader>gl", "<Cmd>Gitsigns blame_line<CR>",      desc = "git blame line", silent = true },
 		},
+		config = function()
+			require('gitsigns').setup()
+		end
 	}
 }

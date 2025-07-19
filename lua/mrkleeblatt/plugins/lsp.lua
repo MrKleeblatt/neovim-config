@@ -44,7 +44,6 @@ return {
 			"williamboman/mason.nvim",
 			"neovim/nvim-lspconfig",
 			"nvimtools/none-ls.nvim",
-			"mfussenegger/nvim-dap",
 			"hrsh7th/cmp-nvim-lsp",
 			"folke/neodev.nvim",
 			{
