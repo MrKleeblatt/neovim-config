@@ -1,12 +1,14 @@
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
+		branch = 'main',
+		lazy = false,
 		build = ":TSUpdate",
-		event = { "VeryLazy" },
 		opts = {
+			highlight = { enable = true, },
 			ensure_installed = {
-				"bash", "c", "css", "go", "html", "javascript", "json", "lua", "markdown",
-				"markdown_inline", "python", "rust", "toml", "typescript", "typst"
+				"bash", "c", "css", "go", "json", "lua", "markdown",
+				"markdown_inline", "toml", "typescript", "typst", "nu", "c3",
 			}
 		},
 		config = function()

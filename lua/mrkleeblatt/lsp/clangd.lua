@@ -29,9 +29,15 @@ dap.configurations.c = {
 	},
 }
 
-require("lspconfig")["clangd"].root_dir = function(fname)
+require("lspconfig").clangd.root_dir = function(fname)
 	return require("lspconfig.util").root_pattern(
 		"devm.c",
 		"compile_commands.json"
 	)(fname)
 end
+
+require("lspconfig").clangd.setup({
+  on_attach = function(client)
+    client.server_capabilities.documentFormattingProvider = false
+  end
+})

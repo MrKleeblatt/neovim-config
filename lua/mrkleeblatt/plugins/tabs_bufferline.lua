@@ -7,6 +7,9 @@ return {
 			require("bufferline").setup {
 				options = {
 					separator_style = "padded_slant",
+					offsets = {
+						{ filetype = "NvimTree", text = "Nvim Tree File Explorer", highlight = "Directory", separator = true }
+					},
 					diagnostics = "nvim_lsp",
 					diagnostics_indicator = function(count, level)
 						local icon = level:match("error") and " " or " "

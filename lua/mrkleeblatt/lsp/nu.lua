@@ -18,10 +18,6 @@ vim.api.nvim_create_autocmd("FileType", {
     })
   end,
 })
-require("nvim-treesitter.configs").setup({
-  ensure_installed = { "nu" }, -- Falls noch nicht vorhanden
-  highlight = { enable = true },
-})
 
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "nu",

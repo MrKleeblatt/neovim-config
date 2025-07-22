@@ -56,3 +56,23 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
 	end,
 })
+
+
+-- c headers should be recognized as c headers, not cpp
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+	pattern = "*.h",
+	callback = function()
+		vim.bo.filetype = "c"
+	end
+})
+
+-- c3 files
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = {'c3'},
+  callback = function(args)
+    vim.wo.foldmethod = 'expr'
+    vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+    vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+    vim.treesitter.start()
+  end,
+})
