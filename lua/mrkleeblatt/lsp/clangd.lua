@@ -29,15 +29,15 @@ dap.configurations.c = {
 	},
 }
 
-require("lspconfig").clangd.root_dir = function(fname)
-	return require("lspconfig.util").root_pattern(
-		"devm.c",
-		"compile_commands.json"
-	)(fname)
-end
-
-require("lspconfig").clangd.setup({
-  on_attach = function(client)
-    client.server_capabilities.documentFormattingProvider = false
-  end
+vim.lsp.config("clangd", {
+	root_dir = function(fname)
+		return require("lspconfig.util").root_pattern(
+			"devm.c",
+			"compile_commands.json"
+		)(fname)
+	end,
+	on_attach = function(client)
+		client.server_capabilities.documentFormattingProvider = false
+	end
 })
+
