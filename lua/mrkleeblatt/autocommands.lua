@@ -68,11 +68,23 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
 
 -- c3 files
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = {'c3'},
-  callback = function(args)
-    vim.wo.foldmethod = 'expr'
-    vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-    vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-    vim.treesitter.start()
-  end,
+	pattern = { 'c3' },
+	callback = function()
+		vim.wo.foldmethod = 'expr'
+		vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+		vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+		vim.treesitter.start()
+	end,
+})
+
+vim.api.nvim_create_autocmd({ "FileType" }, {
+	callback = function()
+		local lang = vim.treesitter.language.get_lang(vim.bo.filetype or "")
+		if lang then
+			vim.wo.foldmethod = "expr"
+			vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+		else
+			vim.wo.foldmethod = "indent"
+		end
+	end,
 })

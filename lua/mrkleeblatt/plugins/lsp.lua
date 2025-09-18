@@ -20,18 +20,15 @@ return {
 				"clangd", -- C and C++
 				"dockerls",
 				"denols",
+				"html",
 				"gopls",
 				"lua_ls",
 				"yamlls",
 				"markdown_oxide",
 				"tinymist",
+				"zls",
 			}
 		},
-		-- config = function()
-		-- 	local default_capabilities = require("cmp_nvim_lsp").default_capabilities()
-		-- 	default_capabilities.offsetEncoding = { "utf-8", "utf-16" }
-		-- end
-
 	},
 	{
 		"neovim/nvim-lspconfig",
@@ -65,17 +62,12 @@ return {
 					}
 				}
 			end
+
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 			local lspconfig = require("lspconfig")
 			lspconfig.clangd.setup({ capabilities = capabilities })
 			lspconfig.c3_lsp.setup {}
-			lspconfig.hls.setup({ capabilities = capabilities })
-			lspconfig.html.setup({ capabilities = capabilities })
-			lspconfig.lua_ls.setup({ capabilities = capabilities })
-			lspconfig.markdown_oxide.setup({ capabilities = capabilities })
-			lspconfig.pylsp.setup({ capabilities = capabilities })
-			lspconfig.ts_ls.setup({ capabilities = capabilities })
 		end,
 	},
 	-- non-lsp tools into the LSP experience (diagnostic, formatting, etc.)
@@ -95,6 +87,14 @@ return {
 	{
 		"LhKipp/nvim-nu",
 		build = ":TSInstall nu",
-	}
-
+	},
+	{
+		'nvim-flutter/flutter-tools.nvim',
+		lazy = false,
+		dependencies = {
+			'nvim-lua/plenary.nvim',
+			'stevearc/dressing.nvim', -- optional for vim.ui.select
+		},
+		config = true,
+	},
 }
